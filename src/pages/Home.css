@@ -95,9 +95,6 @@ body {
   transition: transform 0.3s ease;
 }
 
-.google-review-link:hover {
-  transform: scale(1.05);
-}
 
 .google-review-badge {
   display: flex;
@@ -638,6 +635,96 @@ body {
 }
 
 
+
+#Offers {
+  width: 95%;
+  max-width: 1600px;
+  height: auto;
+  min-height: 500px;
+  margin: 40px auto;
+  padding: clamp(24px, 5vw, 40px);
+  background: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--border-color);
+  gap: clamp(20px, 5vw, 40px);
+  overflow: hidden;
+}
+
+.offers-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+#main-offers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 20px 0;
+}
+
+.offers-div {
+  width: 100%;
+  height: 600px;
+  background-color: #fff; 
+  border-radius: 20px;
+  border: 1px solid #e5ddd5;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+
+.offers-div.model-container {
+  padding: 0;
+  background-color: transparent;
+}
+
+.offers-div.model-container > div {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.offers-div.model-container canvas {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.offers-div p {
+  font-size: 24px;
+  color: #8b5e3c;
+  font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+  #main-offers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  #main-offers {
+    grid-template-columns: 1fr;
+  }
+  
+  .offers-div {
+    height: 500px;
+  }
+}
+
+
+
+
+
+
+
 #Customers {
   width: 95%;
   max-width: 1600px;
@@ -983,5 +1070,313 @@ body {
     position: absolute;
     bottom: 10px;
     right: 10px;
+  }
+}
+/* ===================== */
+/* 🌟 BASE STYLES */
+/* ===================== */
+
+.home-container {
+  width: 95%;
+  max-width: 1600px;
+  height: auto;
+  min-height: 500px;
+  margin: 40px auto;
+  padding: clamp(24px, 5vw, 40px);
+  background: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--border-color);
+}
+
+.hero-section {
+  padding: 60px 24px;
+}
+
+.hero-contenttt {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.header-contenttt {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.header-badge span {
+  color: var(--accent-color);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.main-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* ===================== */
+/* 🍰 OFFERS LAYOUT */
+/* ===================== */
+
+.offers-layout {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 0;
+}
+
+.offers-left,
+.offers-right {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.offer-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.offer-item:hover {
+  transform: translateY(-5px);
+}
+
+.offer-item img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-soft);
+  box-shadow: var(--shadow-md);
+}
+
+.offer-item h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-strong);
+  margin: 0;
+}
+
+.offer-item p {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin: 2px 0;
+}
+
+.offer-item .price {
+  color: var(--accent-color);
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/* ===================== */
+/* ☕ CENTER OFFER */
+/* ===================== */
+
+#offers-center-main {
+  background-color: var(--bg-secondary);
+  border-radius: 50%;
+  width: 420px;
+  height: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.offers-center {
+  text-align: center;
+  padding: 40px 60px;
+  border: 1px solid hsl(30, 24%, 87%); /* 🔒 untouched border */
+  width: 400px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.offers-center h2 {
+  font-size: 28px;
+  color: var(--text-strong);
+  margin-bottom: 8px;
+}
+
+.offers-center p {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.bakery-gif {
+  height: 200%;
+  width: 200%;
+  position: relative;
+  right: 135px;
+}
+
+/* ===================== */
+/* 💻 DESKTOP & LAPTOP */
+/* ===================== */
+
+@media (min-width: 1200px) {
+  .offers-layout {
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .main-title {
+    font-size: 48px;
+  }
+
+  #offers-center-main {
+    width: 420px;
+    height: 650px;
+  }
+
+  .offers-center {
+    width: 400px;
+    height: 600px;
+  }
+}
+
+/* ===================== */
+/* 💻 SMALL LAPTOPS / TABLETS */
+/* ===================== */
+
+@media (max-width: 1024px) {
+  .main-title {
+    font-size: 36px;
+  }
+
+  .offers-layout {
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .offers-left,
+  .offers-right {
+    align-items: center;
+  }
+
+  #offers-center-main {
+    width: 350px;
+    height: 550px;
+    margin: 0 auto;
+  }
+
+  .offers-center {
+    width: 320px;
+    height: 500px;
+  }
+
+  .bakery-gif {
+    width: 150%;
+    height: 150%;
+    right: 50px;
+  }
+}
+
+/* ===================== */
+/* 📱 PHONES */
+/* ===================== */
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 40px 12px;
+  }
+
+  .main-title {
+    font-size: 28px;
+    line-height: 1.3;
+  }
+
+  .offers-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .offer-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .offer-item img {
+    width: 90px;
+    height: 90px;
+  }
+
+  #offers-center-main {
+    width: 300px;
+    height: 450px;
+  }
+
+  .offers-center {
+    width: 270px;
+    height: 400px;
+    padding: 30px;
+  }
+
+  .bakery-gif {
+    width: 120%;
+    height: 120%;
+    right: 40px;
+  }
+}
+
+/* ===================== */
+/* 📞 SMALL PHONES */
+/* ===================== */
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 22px;
+  }
+
+  .header-badge span {
+    font-size: 16px;
+  }
+
+  .offer-item h4 {
+    font-size: 16px;
+  }
+
+  .offer-item p {
+    font-size: 13px;
+  }
+
+  #offers-center-main {
+    width: 250px;
+    height: 380px;
+  }
+
+  .offers-center {
+    width: 230px;
+    height: 350px;
+    padding: 20px;
+  }
+
+  .bakery-gif {
+    width: 100%;
+    height: 100%;
+    right: 0;
   }
 }

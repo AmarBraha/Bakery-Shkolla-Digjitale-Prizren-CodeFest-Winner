@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ThemeSwitch from "../components/ThemeSwitch";
 import "./Navbar.css";
+import { CartButton, FavoritesButton } from "./CartFavorites";
 
-const Navbar = () => {
+
+const Navbar = ({ cart, setCart, favorites, setFavorites, toggleFavorite, setIsCheckoutOpen }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDark, setIsDark] = useState(false);
@@ -48,7 +50,7 @@ const Navbar = () => {
   }, [isMobileMenuOpen]);
 
   useEffect(() => {
-    document.body.className = isDark ? 'dark-theme' : 'light-theme';
+    document.body.className = isDark ? "dark-theme" : "light-theme";
   }, [isDark]);
 
   return (
@@ -89,7 +91,23 @@ const Navbar = () => {
       </ul>
 
       <div className="navbar-right">
-        <ThemeSwitch isDark={isDark} onToggle={handleThemeToggle} />
+        <div className="navbar-cart-favorites">
+          <FavoritesButton 
+            favorites={favorites} 
+            onUpdateFavorites={setFavorites}
+            onSelectProduct={() => {}}
+            onToggleFavorite={toggleFavorite}
+          />
+          <CartButton 
+            cart={cart}
+            onUpdateCart={setCart}
+            onSelectProduct={() => {}}
+            onCheckout={() => setIsCheckoutOpen(true)}
+          />
+        </div>
+        
+        <ThemeSwitch isDark={isDark} onToggle={handleThemeToggle} class="ThemeSwitch"/>
+        
         <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
           <span className={`hamburger ${isMobileMenuOpen ? "active" : ""}`}>
             <span></span>

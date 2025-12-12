@@ -1,0 +1,60 @@
+/* src/components/GTranslate.css */
+
+/* --- Control the main GTranslate wrapper size and font --- */
+.gtranslate_wrapper {
+    /* Ensures the wrapper is a single line */
+    display: inline-block !important; 
+    white-space: nowrap !important;
+}
+
+.gtranslate_wrapper select {
+    /* Set size and styles to match your design and prevent excessive width */
+    width: auto !important;
+    min-width: 120px !important;
+    max-width: 150px !important; 
+    
+    padding: 6px 8px !important;
+    border: 1px solid var(--logo-bg) !important;
+    border-radius: 6px !important;
+    font-size: 14px !important;
+    
+    /* Use !important to override inline styles set by the GTranslate script */
+    height: auto !important; 
+    line-height: normal !important;
+    box-shadow: none !important;
+    background-color: var(--navbar-bg) !important;
+    color: var(--navbar-text) !important;
+}
+
+/* --- Mobile Fixes (Critical for Navbar layout on small screens) --- */
+
+@media (max-width: 768px) {
+    .gtranslate_wrapper select {
+        min-width: 100px !important;
+        max-width: 120px !important; 
+        padding: 4px 6px !important;
+        font-size: 13px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .gtranslate_wrapper select {
+        /* Force the dropdown to be very small for the 80px grid slot */
+        width: 75px !important; 
+        min-width: 75px !important;
+        max-width: 75px !important; 
+        
+        /* Reduce padding and font size to fit the constrained space */
+        padding: 2px 3px !important; 
+        font-size: 11px !important; 
+    }
+}
+
+@media (max-width: 360px) {
+    .gtranslate_wrapper select {
+        /* Even smaller for the 70px grid slot */
+        width: 65px !important; 
+        min-width: 65px !important; 
+        max-width: 65px !important; 
+    }
+}

@@ -8,20 +8,31 @@ import imgAbout2 from '../images/about-us-image-2.jpg';
 import imgInterior from '../images/interior-of-a-bakery.webp';
 import imgRye from '../images/rye.jpg';
 import imgHero from '../images/hero-image.jpg';
+import imgCroissants from '../images/ChatGPT Image Dec 10, 2025, 09_00_47 PM.png';
+import imgteam from '../images/Gemini_Generated_Image_j2hu6sj2hu6sj2hu.png';
+import imgcustomers from '../images/Gemini_Generated_Image_olmdm4olmdm4olmd.png';
+import hello from '../images/Gemini_Generated_Image_pbgwgfpbgwgfpbgw.png';
+import jaaaaaa from '../images/Gemini_Generated_Image_7682zw7682zw7682.png';
+
 
 const MansoryGallery = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const galleryItems = [
-    { id: 1, size: 'large', image: imgBaguettes, title: 'Baguettes' },
-    { id: 2, size: 'medium', image: imgAbout1, title: 'Bakery counters' },
-    { id: 3, size: 'large', image: imgInterior, title: 'Interior' },
-    { id: 4, size: 'medium', image: imgAbout2, title: 'Artisanal breads' },
-    { id: 5, size: 'medium', image: imgHero, title: 'Our team' },
-    { id: 6, size: 'medium', image: imgRye, title: 'Rye Loaf' },
-    { id: 7, size: 'medium', image: imgBaguettes, title: 'Breads' },
-    { id: 8, size: 'large', image: imgAbout1, title: 'Shelves' },
+    { id: 1, size: 'large', image: imgBaguettes},
+    { id: 2, size: 'medium', image: imgAbout1 },
+    { id: 3, size: 'large', image: imgInterior},
+    { id: 4, size: 'medium', image: imgAbout2},
+    { id: 5, size: 'medium', image: imgHero},
+    { id: 6, size: 'medium', image: imgRye},
+    { id: 7, size: 'medium', image: imgBaguettes},
+    { id: 8, size: 'large', image: imgAbout1},
+    { id: 9, size: 'medium', image: imgCroissants},
+    { id: 10, size: 'medium', image: imgteam},
+    { id: 11, size: 'large', image: imgcustomers},
+    { id: 12, size: 'medium', image: hello},
+    { id: 13, size: 'medium', image: jaaaaaa},
   ];
 
   const openModal = (index) => {
@@ -56,7 +67,7 @@ const MansoryGallery = () => {
             id={item.id} 
             size={item.size} 
             image={item.image}
-            title={item.title}
+            // title={item.title}
             onClick={() => openModal(index)}
           />
         ))}

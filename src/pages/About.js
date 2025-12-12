@@ -1,6 +1,7 @@
 import React from "react";
 import "./About.css";
 import Image1 from "../images/about-us-image-1.jpg";
+import Image11 from "../images/Gemini_Generated_Image_j2hu6sj2hu6sj2hu.png";
 import Image2 from "../images/about-us-image-2.jpg";
 import Reviews from "../components/reviews.js";
 import CountUp from "../components/CountUp.js";
@@ -137,8 +138,8 @@ function About() {
         </div>
         <div className="about-images">
           <div className="about-image-container">
-            <img className="about-image" src={Image1} alt="Bakery interior" />
-            <img className="about-image" src={Image2} alt="Bakery products" />
+            <img className="about-image" src={Image1} alt="Bakery interior" data-aos="zoom-in-right" />
+            <img className="about-image" src={Image2} alt="Bakery products"  data-aos="zoom-in-right"/>
           </div>
         </div>
       </div>
@@ -179,7 +180,8 @@ function About() {
           <div id="Image">
             <div className="image-section">
               <img
-                src={Image1}
+              data-aos="fade-right"
+                src={Image11}
                 alt="Bakery approach"
                 className="approach-image"
               />
@@ -187,6 +189,10 @@ function About() {
           </div>
 
           <div id="Divat">
+
+
+
+            <div data-aos="fade-up">
             <div className="Mission">
               <div className="value-header">
                 <svg
@@ -211,6 +217,10 @@ function About() {
                 pastry, and cake is handcrafted with care, patience, and love.
               </p>
             </div>
+            </div>
+
+            <div data-aos="fade-up" duration="500">
+
             <div className="Mission">
               <div className="value-header">
                 <svg
@@ -230,12 +240,19 @@ function About() {
                 </svg>
                 <h2>Our Vision</h2>
               </div>
+              
 
               <p>
                 To become the most beloved bakery in our community, spreading
                 joy through exceptional baked goods and warm hospitality.
               </p>
             </div>
+            </div>
+
+
+
+
+            <div data-aos="fade-up" duration="700">
             <div className="Mission">
               <div className="value-header">
                 <svg
@@ -267,6 +284,7 @@ function About() {
                 finest ingredients and traditional techniques to create
                 memorable experiences.
               </p>
+            </div>
             </div>
           </div>
         </div>
@@ -313,6 +331,8 @@ function About() {
         </div>
 
         <div className="stats-container">
+
+          <div data-aos="fade-up" duration="300">
           <div className="stat-card">
             <div className="stat-number">
               <p>
@@ -332,6 +352,18 @@ function About() {
               Serving fresh baked goods since 1999
             </p>
           </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+          <div data-aos="fade-up" duration="500">
           <div className="stat-card">
             <div className="stat-number">
               <p>
@@ -351,6 +383,16 @@ function About() {
               Building relationships one loaf at a time
             </p>
           </div>
+          </div>
+
+
+
+
+
+
+
+        
+            <div data-aos="fade-up" duration="500">
           <div className="stat-card">
             <div className="stat-number">
               <p>
@@ -370,6 +412,12 @@ function About() {
               From artisan breads to sweet pastries
             </p>
           </div>
+            </div>
+
+
+
+
+            <div data-aos="fade-up" duration="700">
           <div className="stat-card">
             <div className="stat-number">
               <p>
@@ -388,6 +436,7 @@ function About() {
             <p className="stat-description">
               Baked fresh every morning with love
             </p>
+          </div>
           </div>
         </div>
       </div>

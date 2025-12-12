@@ -1,0 +1,575 @@
+/* CSS Variables - Light Theme (Default) */
+:root {
+  --bg-color: #faf7f2;
+  --card-color: #ffffff;
+  --text-color: #3d2c1e;
+  --text-muted: #7a6a5a;
+  --primary-color: #8b5e3c;
+  --primary-light: rgba(139, 94, 60, 0.1);
+  --border-color: #e8e0d5;
+  --secondary-bg: #f5f0e8;
+  --success-color: #22c55e;
+  --error-color: #ef4444;
+}
+
+/* Light Theme */
+body.light-theme {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --navbar-bg: #f6f2ee;
+  --navbar-text: #1c1c1c;
+  --logo-bg: #8b5e3c;
+  --card-color: #ffffff;
+  --text-muted: #7a6a5a;
+  --primary-color: #8b5e3c;
+  --primary-light: rgba(139, 94, 60, 0.1);
+  --border-color: #e8e0d5;
+  --secondary-bg: #f5f0e8;
+  --success-color: #22c55e;
+  --error-color: #ef4444;
+}
+
+/* Dark Theme */
+body.dark-theme {
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --navbar-bg: #2d2d2d;
+  --navbar-text: #e0e0e0;
+  --logo-bg: #a67c52;
+  --card-color: #2d2d2d;
+  --text-muted: #a0a0a0;
+  --primary-color: #a67c52;
+  --primary-light: rgba(166, 124, 82, 0.15);
+  --border-color: #404040;
+  --secondary-bg: #232323;
+  --success-color: #22c55e;
+  --error-color: #ef4444;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar {
+  background: var(--navbar-bg);
+}
+
+.nav-links a {
+  color: var(--navbar-text);
+}
+
+.logo-icon {
+  background-color: var(--logo-bg);
+}
+
+.logo-text {
+  color: var(--navbar-text);
+}
+
+/* Overlay */
+.checkout-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Modal */
+.checkout-modal {
+  background-color: var(--card-color);
+  width: 100%;
+  max-width: 28rem;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  animation: slideUp 0.3s ease-out;
+  border: 1px solid var(--border-color);
+}
+
+.checkout-content,
+.success-content {
+  padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .checkout-content,
+  .success-content {
+    padding: 2rem;
+  }
+}
+
+/* Header */
+.checkout-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.checkout-title {
+  font-size: 1.5rem;
+  font-family: Georgia, serif;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.checkout-close-btn {
+  padding: 0.5rem;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.checkout-close-btn:hover {
+  background-color: var(--secondary-bg);
+}
+
+.checkout-close-btn svg {
+  width: 20px;
+  height: 20px;
+  color: var(--text-muted);
+}
+
+/* Order Summary */
+.order-summary {
+  background-color: var(--secondary-bg);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.order-summary-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.order-summary-count {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.order-summary-total {
+  font-family: Georgia, serif;
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--primary-color);
+}
+
+.order-summary-items {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Form */
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.form-label svg {
+  width: 16px;
+  height: 16px;
+  color: var(--text-muted);
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  background-color: var(--secondary-bg);
+  color: var(--text-color);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.form-select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 2.5rem;
+}
+
+.form-select option {
+  background-color: var(--card-color);
+  color: var(--text-color);
+}
+
+.select-arrow {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-muted);
+}
+
+.select-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Payment Methods */
+.payment-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-bottom: 0.75rem;
+}
+
+.payment-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.payment-btn {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 2px solid var(--border-color);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  color: var(--text-muted);
+}
+
+.payment-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.payment-btn.selected {
+  border-color: var(--primary-color);
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+}
+
+.payment-btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+.payment-btn span {
+  font-weight: 500;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: none;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  transition: opacity 0.2s;
+}
+
+.submit-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.submit-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Spinner */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Success State */
+.success-content {
+  text-align: center;
+}
+
+.success-icon {
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--success-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  animation: scaleIn 0.3s ease-out 0.2s both;
+}
+
+.success-icon svg {
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+}
+
+.success-title {
+  font-size: 1.5rem;
+  font-family: Georgia, serif;
+  color: var(--text-color);
+  margin: 0 0 0.5rem;
+}
+
+.success-message {
+  color: var(--text-muted);
+  margin: 0 0 1.5rem;
+}
+
+.success-message .highlight {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+/* Receipt */
+.receipt-container {
+  background-color: var(--secondary-bg);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.receipt-header {
+  background-color: var(--primary-light);
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.receipt-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.receipt-header-left svg {
+  width: 16px;
+  height: 16px;
+}
+
+.receipt-table {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.receipt-items {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.receipt-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.receipt-item-info {
+  flex: 1;
+}
+
+.receipt-item-name {
+  font-weight: 500;
+  color: var(--text-color);
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.receipt-item-qty {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  margin: 0.25rem 0 0;
+}
+
+.receipt-item-total {
+  font-weight: 500;
+  color: var(--text-color);
+  font-size: 0.875rem;
+}
+
+.receipt-divider {
+  margin: 0 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.receipt-divider.dashed {
+  border-top-style: dashed;
+}
+
+.receipt-total-row {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.receipt-total-label {
+  font-family: Georgia, serif;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.receipt-total-value {
+  font-size: 1.25rem;
+  font-family: Georgia, serif;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.receipt-payment-row {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.receipt-payment-label {
+  color: var(--text-muted);
+}
+
+.receipt-payment-value {
+  font-weight: 500;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.receipt-payment-value svg {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-cash svg {
+  color: var(--success-color);
+}
+
+.icon-card svg {
+  color: var(--primary-color);
+}
+
+/* Done Button */
+.done-btn {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  border: none;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.done-btn:hover {
+  opacity: 0.9;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
