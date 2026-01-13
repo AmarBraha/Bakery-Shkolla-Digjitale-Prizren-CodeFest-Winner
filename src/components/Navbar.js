@@ -3,15 +3,13 @@ import { Link } from "react-router-dom";
 import ThemeSwitch from "../components/ThemeSwitch";
 import "./Navbar.css";
 import { CartButton, FavoritesButton } from "./CartFavorites";
-import { User } from "lucide-react";
-import LoginPopup from "./Login";
+import { LayoutDashboard } from "lucide-react";
 
 
 const Navbar = ({ cart, setCart, favorites, setFavorites, toggleFavorite, setIsCheckoutOpen }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDark, setIsDark] = useState(false);
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -57,85 +55,74 @@ const Navbar = ({ cart, setCart, favorites, setFavorites, toggleFavorite, setIsC
   }, [isDark]);
 
   return (
-    <>
-      <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <div className="navbar-left">
-            <div className="logo-icon">🍞</div>
-            <h1 className="logo-text">Bakery</h1>
-          </div>
-        </Link>
-
-        <ul className={`nav-links ${isMobileMenuOpen ? "mobile-open" : ""}`}>
-          <li>
-            <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>
-              About Us
-            </Link>
-          </li>
-          <li>
-            <Link to="/products" onClick={() => setIsMobileMenuOpen(false)}>
-              Products
-            </Link>
-          </li>
-          <li>
-            <Link to="/gallery" onClick={() => setIsMobileMenuOpen(false)}>
-              Gallery
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-              Contact
-            </Link>
-          </li>
-        </ul>
-
-        <div className="navbar-right">
-          <div className="navbar-cart-favorites">
-            <button 
-              className="dashboard-button login-trigger-btn" 
-              onClick={() => setIsLoginOpen(true)}
-              aria-label="Login"
-            >
-              <div className="dashboard-badge-wrapper">
-                <User className="dashboard-icon" size={24} />
-              </div>
-            </button>
-            <FavoritesButton 
-              favorites={favorites} 
-              onUpdateFavorites={setFavorites}
-              onSelectProduct={() => {}}
-              onToggleFavorite={toggleFavorite}
-            />
-            <CartButton 
-              cart={cart}
-              onUpdateCart={setCart}
-              onSelectProduct={() => {}}
-              onCheckout={() => setIsCheckoutOpen(true)}
-            />
-          </div>
-          
-          <ThemeSwitch isDark={isDark} onToggle={handleThemeToggle} className="ThemeSwitch"/>
-          
-          <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
-            <span className={`hamburger ${isMobileMenuOpen ? "active" : ""}`}>
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-          </button>
+    <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
+      <Link to="/" style={{ textDecoration: "none" }}>
+        <div className="navbar-left">
+          <div className="logo-icon">🍞</div>
+          <h1 className="logo-text">Bakery</h1>
         </div>
-      </nav>
+      </Link>
 
-      <LoginPopup 
-        isOpen={isLoginOpen} 
-        onClose={() => setIsLoginOpen(false)} 
-      />
-    </>
+      <ul className={`nav-links ${isMobileMenuOpen ? "mobile-open" : ""}`}>
+        <li>
+          <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>
+            About Us
+          </Link>
+        </li>
+        <li>
+          <Link to="/products" onClick={() => setIsMobileMenuOpen(false)}>
+            Products
+          </Link>
+        </li>
+        <li>
+          <Link to="/gallery" onClick={() => setIsMobileMenuOpen(false)}>
+            Gallery
+          </Link>
+        </li>
+        <li>
+          <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+            Contact
+          </Link>
+        </li>
+      </ul>
+
+      <div className="navbar-right">
+        <div className="navbar-cart-favorites">
+          <Link to="/dashboard" className="dashboard-button">
+            <div className="dashboard-badge-wrapper">
+              <LayoutDashboard className="dashboard-icon" size={24} />
+            </div>
+          </Link>
+          <FavoritesButton 
+            favorites={favorites} 
+            onUpdateFavorites={setFavorites}
+            onSelectProduct={() => {}}
+            onToggleFavorite={toggleFavorite}
+          />
+          <CartButton 
+            cart={cart}
+            onUpdateCart={setCart}
+            onSelectProduct={() => {}}
+            onCheckout={() => setIsCheckoutOpen(true)}
+          />
+        </div>
+        
+        <ThemeSwitch isDark={isDark} onToggle={handleThemeToggle} class="ThemeSwitch"/>
+        
+        <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+          <span className={`hamburger ${isMobileMenuOpen ? "active" : ""}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+    </nav>
   );
 };
 
