@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Loader from "./components/Loader";
 import ContactPage from "./pages/Contact";
 import About from "./pages/About";
@@ -16,19 +16,18 @@ import CheckoutForm from "./components/CheckoutForm";
 import './components/theme.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Dashboard from "./pages/Dashboard"
 
-function App() {
-  const [loading, setLoading] = useState(true);
+// Create a wrapper component to handle conditional rendering
+function AppContent() {
+  const location = useLocation();
+  const isDashboard = location.pathname === '/dashboard';
+  
   const [cart, setCart] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState("");
- 
-  useEffect(() => {
-    const t = setTimeout(() => setLoading(false), 3000);
-    return () => clearTimeout(t);
-  }, []);
  
   useEffect(() => {
     AOS.init({
@@ -62,21 +61,21 @@ function App() {
     setIsCheckoutOpen(false);
     showNotificationMsg("Order placed successfully!");
   };
- 
+
   return (
-    <div className="App">
-      <Loader loading={loading} />
-      <BackToTopButton />
-      <Bakey />
+    <>
+      {!isDashboard && <BackToTopButton />}
+      {!isDashboard && <Bakey />}
       
       {showNotification && (
         <div className="notification">
           <span>{notificationMessage}</span>
         </div>
       )}
- 
-      <Router>
-        <ScrollToTop />
+
+      <ScrollToTop />
+      
+      {!isDashboard && (
         <Navbar 
           cart={cart}
           setCart={setCart}
@@ -85,35 +84,55 @@ function App() {
           toggleFavorite={toggleFavorite}
           setIsCheckoutOpen={setIsCheckoutOpen}
         />
- 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route 
-            path="/products" 
-            element={
-              <Products 
-                cart={cart}
-                setCart={setCart}
-                favorites={favorites}
-                setFavorites={setFavorites}
-                showNotificationMsg={showNotificationMsg}
-                toggleFavorite={toggleFavorite}
-              />
-            } 
-          />
-        </Routes>
-        <Footer />
-      </Router>
- 
+      )}
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route 
+          path="/products" 
+          element={
+            <Products 
+              cart={cart}
+              setCart={setCart}
+              favorites={favorites}
+              setFavorites={setFavorites}
+              showNotificationMsg={showNotificationMsg}
+              toggleFavorite={toggleFavorite}
+            />
+          } 
+        />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+      
+      {!isDashboard && <Footer />}
+
       <CheckoutForm
         isOpen={isCheckoutOpen}
         onClose={() => setIsCheckoutOpen(false)}
         cart={cart}
         onSuccess={handleCheckoutSuccess}
       />
+    </>
+  );
+}
+
+function App() {
+  const [loading, setLoading] = useState(true);
+ 
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 3000);
+    return () => clearTimeout(t);
+  }, []);
+
+  return (
+    <div className="App">
+      <Loader loading={loading} />
+      <Router>
+        <AppContent />
+      </Router>
     </div>
   );
 }

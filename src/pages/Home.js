@@ -14,6 +14,7 @@
   import { Italic } from "lucide-react";
   import bakerygif from '../images/bakerygif.gif';
 
+  
   function Home() {
     const navigate = useNavigate();
     const mountRef = useRef(null);
